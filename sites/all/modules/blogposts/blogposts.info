@@ -1,0 +1,5 @@
+name = Blog Posts Using Ajax Node Loader
+description = Display Articles with Ajax.
+package = Custom Modules
+core = 7.x
+files[] = blogposts.module
