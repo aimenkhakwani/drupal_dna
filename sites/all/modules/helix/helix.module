@@ -1,0 +1,36 @@
+<?php
+
+    function helix_menu()
+    {
+        $items['helix'] = array(
+            'title' => 'Helix',
+            'page callback' => 'drupal_get_form',
+            'page arguments' => array('helix_form'),
+            'access callback' => TRUE,
+            'type' => MENU_NORMAL_ITEM,
+        );
+        $items['helix_success_page'] = array(
+            'title' => 'DNA Helix Results',
+            'page callback' => 'helix_output',
+            'access callback' => TRUE,
+            'type' => MENU_CALLBACK,
+        );
+        return $items;
+    }
+
+    function helix_form()
+    {
+        $form['dnainput'] = array(
+            '#title' => 'Enter one half of the double helix',
+            '#type' => 'textfield',
+            '#required' => TRUE,
+        );
+
+        $form['submit'] = array(
+            '#type' => 'submit',
+            '#value' => 'Submit',
+        );
+        return $form;
+    }
+
+    

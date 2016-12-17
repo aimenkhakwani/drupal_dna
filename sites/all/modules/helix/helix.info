@@ -1,0 +1,5 @@
+name = Helix
+description = Takes one half of a DNA Helix and prints out the corresponding pairs
+package = Custom Modules
+core = 7.x
+files[] = helix.module
