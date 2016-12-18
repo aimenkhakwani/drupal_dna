@@ -1,5 +1,34 @@
 <?php
 
+    //Functional Tests
+    class HelixTests extends DrupalWebTestCase
+    {
+        public static function getInfo() {
+            return array(
+                'name' => 'Helix Functional Tests',
+                'description' => 'Tests for the Helix module.',
+                'group' => 'Helix Tests',
+            );
+        }
+
+        public function setUp() {
+            parent::setUp(array('helix'));
+        }
+
+        public function testHelixCompletesDna() {
+            $this->drupalGet('helix');
+
+            $this->assertText("Enter one half of the double helix", 'Form displayed!');
+
+            $form = array();
+            $form['dnainput'] = 'ATCG';
+            $this->drupalPost('helix', $form, t('Submit'));
+
+            $this->assertText('First half of the double helix: ATCG', 'Input correctly displayed.');
+            $this->assertText('Second half of the double helix: TAGC', 'Output correctly displayed!');
+        }
+    }
+
     //Unit Tests
     class HelixTestCase extends DrupalUnitTestCase
     {
