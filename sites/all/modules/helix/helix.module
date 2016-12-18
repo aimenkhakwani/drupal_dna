@@ -23,6 +23,7 @@
         $form['dnainput'] = array(
             '#title' => 'Enter one half of the double helix',
             '#type' => 'textfield',
+            '#element_validate' => array('element_validate_input'),
             '#required' => TRUE,
         );
 
@@ -31,6 +32,17 @@
             '#value' => 'Submit',
         );
         return $form;
+    }
+
+    function element_validate_input($element)
+    {
+        $valid_char = array('A', 'T', 'C', 'G');
+        $letters = str_split(strtoupper($element['#value']));
+        foreach($letters as $each_letter) {
+            if (in_array($each_letter, $valid_char) == false) {
+                form_error($element, t('Please enter only A, T, C or G'));
+            }
+        }
     }
 
     function dna_helix($input)
