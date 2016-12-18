@@ -5,3 +5,4 @@ core = 7.x
 files[] = helix.module
 files[] = helix.test
 dependencies[] = simpletest
+stylesheets[all][] = helix.css

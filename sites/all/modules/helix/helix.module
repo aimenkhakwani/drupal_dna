@@ -76,6 +76,6 @@
 
     function helix_output()
     {
-        return '<h2>First half of the double helix: ' . $_SESSION['first_half'] . '<br>' .
-                'Second half of the double helix: ' . $_SESSION['second_half'] . '</h2>';
+        return '<h3>First half of the double helix: <span class="red">' . $_SESSION['first_half'] . '</span><br>' .
+                'Second half of the double helix: <span class="blue">' . $_SESSION['second_half'] . '</span></h3>';
     }
