@@ -33,4 +33,37 @@
         return $form;
     }
 
-    
+    function dna_helix($input)
+    {
+        $input_array = str_split($input);
+        $output = array();
+
+        foreach ($input_array as &$letter) {
+            if($letter == "A") {
+                array_push($output, "T");
+            } elseif ($letter == "T") {
+                array_push($output, "A");
+            } elseif ($letter == "C") {
+                array_push($output, "G");
+            } elseif ($letter == "G") {
+                array_push($output, "C");
+            }
+        }
+        // $output = implode("", $output);
+        return implode("", $output);
+    }
+
+    function helix_form_submit($form, &$form_state)
+    {
+        $input = strtoupper($form_state['values']['dnainput']);
+        $_SESSION['first_half'] = $input;
+        $result = dna_helix($input);
+        $_SESSION['second_half'] = $result;
+        $form_state['redirect'] = 'helix_success_page';
+    }
+
+    function helix_output()
+    {
+        return '<h2>First half of the double helix: ' . $_SESSION['first_half'] . '<br>' .
+                'Second half of the double helix: ' . $_SESSION['second_half'] . '</h2>';
+    }

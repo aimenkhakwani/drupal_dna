@@ -3,3 +3,5 @@ description = Takes one half of a DNA Helix and prints out the corresponding pai
 package = Custom Modules
 core = 7.x
 files[] = helix.module
+files[] = helix.test
+dependencies[] = simpletest
