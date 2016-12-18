@@ -47,6 +47,7 @@
 
     function dna_helix($input)
     {
+        $input = strtoupper($input);
         $input_array = str_split($input);
         $output = array();
 
@@ -61,14 +62,13 @@
                 array_push($output, "C");
             }
         }
-        // $output = implode("", $output);
         return implode("", $output);
     }
 
     function helix_form_submit($form, &$form_state)
     {
-        $input = strtoupper($form_state['values']['dnainput']);
-        $_SESSION['first_half'] = $input;
+        $input = $form_state['values']['dnainput'];
+        $_SESSION['first_half'] = strtoupper($input);
         $result = dna_helix($input);
         $_SESSION['second_half'] = $result;
         $form_state['redirect'] = 'helix_success_page';
@@ -76,6 +76,6 @@
 
     function helix_output()
     {
-        return '<h3>First half of the double helix: <span class="red">' . $_SESSION['first_half'] . '</span><br>' .
-                'Second half of the double helix: <span class="blue">' . $_SESSION['second_half'] . '</span></h3>';
+        return '<h3>1st half of the double helix: <span class="red">' . $_SESSION['first_half'] . '</span><br>' .
+                '2nd half of the double helix: <span class="blue">' . $_SESSION['second_half'] . '</span></h3>';
     }

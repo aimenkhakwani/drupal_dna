@@ -47,6 +47,12 @@
             $expected_output = 'T';
             $this->assertEqual($result, $expected_output, $description);
 
+            $description = 'The letter a should return T.';
+            $input = 'a';
+            $result = dna_helix($input);
+            $expected_output = 'T';
+            $this->assertEqual($result, $expected_output, $description);
+
             $description = 'The letter T should return A.';
             $input = 'T';
             $result = dna_helix($input);
@@ -67,6 +73,12 @@
 
             $description = 'ATCG should return TAGC.';
             $input = 'ATCG';
+            $result = dna_helix($input);
+            $expected_output = 'TAGC';
+            $this->assertEqual($result, $expected_output, $description);
+
+            $description = 'aTCg should return TAGC.';
+            $input = 'aTCg';
             $result = dna_helix($input);
             $expected_output = 'TAGC';
             $this->assertEqual($result, $expected_output, $description);
