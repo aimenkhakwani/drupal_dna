@@ -24,8 +24,8 @@
             $form['dnainput'] = 'ATCG';
             $this->drupalPost('helix', $form, t('Submit'));
 
-            $this->assertText('First half of the double helix: ATCG', 'Input correctly displayed.');
-            $this->assertText('Second half of the double helix: TAGC', 'Output correctly displayed!');
+            $this->assertText('1st half of the double helix: ATCG', 'Input correctly displayed.');
+            $this->assertText('2nd half of the double helix: TAGC', 'Output correctly displayed!');
         }
     }
 
